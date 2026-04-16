@@ -74,7 +74,7 @@ def verify_determinant(A: Matrix, atol: float = 1e-8) -> int:
         print("  -> Định thức từ hàm của bạn: None")
     print(f"  -> [NumPy Verify] Định thức từ NumPy: {numpy_det:.6e}")
     
-    # Tính sai số tuyệt đối (tương tự residual)
+    # Tính sai số tuyệt đối giữa hai kết quả
     error = abs(det - numpy_det)
     
     print(f"  -> [NumPy Verify] Sai số tuyệt đối: {error:.2e}")
@@ -89,8 +89,6 @@ def verify_determinant(A: Matrix, atol: float = 1e-8) -> int:
         print("  -> [NumPy Verify] Kết quả: ĐỊNH THỨC SAI LỆCH LỚN")
         return -1
 
-
-# Chạy main
 if __name__ == "__main__":
     print("\n" + "="*80)
     print("KIỂM THỬ THUẬT TOÁN TÍNH ĐỊNH THỨC BẰNG KHỬ GAUSS ")

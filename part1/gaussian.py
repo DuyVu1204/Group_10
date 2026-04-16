@@ -312,32 +312,32 @@ if __name__ == "__main__":
              [0, 0, 1, 1e-10, 1],
              [0, 0, 0, 1, 1e-10]],
              [1e-10 + 1, 1 + 1e-10, 1e-10 + 1, 1 + 1e-10, 1e-10 + 1]
-),
+        ),
     ]
-
-for title, A, b in test_cases:
-    print(f"\n{title}")
-    _, x, _ = gaussian_eliminate(A, b)
     
-    # Nếu có nghiệm duy nhất -> Verify bằng Numpy
-    if x is not None and len(x) > 0:
-        print(f"  -> Nghiệm tìm được: {[round(val, 4) for val in x]}")
-        result = verify_solution(A, x, b)
+    for title, A, b in test_cases:
+        print(f"\n{title}")
+        _, x, _ = gaussian_eliminate(A, b)
         
-        if result == 0:
-            print("  -> Kết luận: NGHIỆM CHÍNH XÁC")
-        elif result == 1:
-            print("  -> Kết luận: NGHIỆM GẦN ĐÚNG")
-        else:
-            print("  -> Kết luận: NGHIỆM SAI LỆCH LỚN")
+        # Nếu có nghiệm duy nhất -> Verify bằng Numpy
+        if x is not None and len(x) > 0:
+            print(f"  -> Nghiệm tìm được: {[round(val, 4) for val in x]}")
+            result = verify_solution(A, x, b)
             
-    # Nếu vô nghiệm hoặc vô số nghiệm
-    else:
-        particular, nullspace, free_vars = general_solution(A, b)
-        if particular is None and nullspace is None:
-            print("  -> Kết luận: HỆ VÔ NGHIỆM (✓)")
+            if result == 0:
+                print("  -> Kết luận: NGHIỆM CHÍNH XÁC")
+            elif result == 1:
+                print("  -> Kết luận: NGHIỆM GẦN ĐÚNG")
+            else:
+                print("  -> Kết luận: NGHIỆM SAI LỆCH LỚN")
+                
+        # Nếu vô nghiệm hoặc vô số nghiệm
         else:
-            print("  -> Kết luận: HỆ VÔ SỐ NGHIỆM")
-            print(f"  -> Nghiệm riêng: {[round(val, 4) for val in particular]}")
-            var_names = [f"x{v+1}" for v in free_vars]
-            print(f"  -> Biến tự do: {', '.join(var_names)}")
+            particular, nullspace, free_vars = general_solution(A, b)
+            if particular is None and nullspace is None:
+                print("  -> Kết luận: HỆ VÔ NGHIỆM")
+            else:
+                print("  -> Kết luận: HỆ VÔ SỐ NGHIỆM")
+                print(f"  -> Nghiệm riêng: {[round(val, 4) for val in particular]}")
+                var_names = [f"x{v+1}" for v in free_vars]
+                print(f"  -> Biến tự do: {', '.join(var_names)}")
