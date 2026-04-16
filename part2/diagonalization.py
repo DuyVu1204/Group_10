@@ -272,8 +272,16 @@ def main():
                 [0, 0, 1, 6, 1],
                 [0, 0, 0, 1, 6]
             ]
-        }
+        },
+
+        {"ten": "Ma tran suy bien", "A": [[1, 2], [2, 4]]},
+        {"ten": "Ma tran don vi", "A": [[1, 0, 0], [0, 1, 0], [0, 0, 1]]},
+        {"ten": "Ma tran Hilbert H3", "A": [[1, 0.5, 0.3333], [0.5, 0.3333, 0.25], [0.3333, 0.25, 0.2]]},
+        {"ten": "Ma tran co tri rieng lap", "A": [[3, 1], [0, 3]]}
+
     ]
+
+
 
     for idx, case in enumerate(test_cases):
         A = case["A"]
