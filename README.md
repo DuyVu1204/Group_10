@@ -34,16 +34,69 @@ Group_10/
 ## Cài đặt
 1. Clone repo:
    git clone https://github.com/DuyVu1204/Group_10.git
-2. Tạo môi trường ảo và cài đặt:
-   - Với venv:
+   
+2. Python 3.11 trở lên
+## 3. Tạo môi trường ảo và cài đặt
 
-     - python -m venv venv
+### 🔹 Sử dụng venv
 
-     - Kích hoạt môi trường ảo (Windows): `source ./venv/Scripts/activate`
+* Tạo môi trường ảo:
 
-     - Cài đặt thư viện cho dự án: `pip install -r requirements.txt`
+```bash
+python -m venv venv
+```
 
+* Kích hoạt môi trường ảo (Windows):
 
-## Cách chạy
-- Mở Visual Studio Code và chạy repo của nhóm 
+```bash
+venv\Scripts\activate
+```
+
+* Cài đặt thư viện:
+
+```bash
+pip install -r requirements.txt
+```
+
 ---
+
+### 🎬 Chạy file `manim_scene.py`
+
+* Cần cài LaTeX (khuyến nghị dùng MiKTeX trên Windows):
+  https://miktex.org/download
+
+* Sau khi cài, kiểm tra:
+
+```bash
+latex --version
+```
+
+---
+
+### ▶️ Chạy chương trình
+
+```bash
+manim -pql part2/manim_scene.py SVDFullVisualization
+```
+
+---
+
+### 📁 Kết quả
+
+Video sẽ được tạo tại:
+
+```
+media/videos/manim_scene/480p15/
+```
+
+---
+
+### ⚠️ Lưu ý
+
+* Nếu lỗi LaTeX → kiểm tra lại MiKTeX đã cài đúng
+* Nếu không thấy video → kiểm tra đúng tên file và Scene
+* `-p`: tự mở video sau khi render
+* `-ql`: render nhanh (low quality)
+
+---
+
